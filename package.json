@@ -1,0 +1,28 @@
+{
+  "name": "azure-to-miro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/main.js",
+  "scripts": {
+    "transfer": "esno ./lib/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bamlab/azure-to-miro.git"
+  },
+  "keywords": [],
+  "author": "juliencalixte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bamlab/azure-to-miro/issues"
+  },
+  "homepage": "https://github.com/bamlab/azure-to-miro#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.33",
+    "dotenv": "^16.0.1",
+    "esno": "^0.14.1"
+  },
+  "dependencies": {
+    "node-fetch": "^3.2.4"
+  }
+}
