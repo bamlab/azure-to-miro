@@ -31,6 +31,7 @@ export const fetchFeature = async (featureId: string): Promise<Feature[]> => {
     const headers = new Headers();
 
     headers.append('Authorization', `Basic ${apiTokenBase64}`);
+
     const response = await fetch(url, {
       headers,
     });
