@@ -23,6 +23,7 @@
     "esno": "^0.14.1"
   },
   "dependencies": {
+    "commander": "^9.2.0",
     "node-fetch": "^3.2.4"
   }
 }

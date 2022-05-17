@@ -2,11 +2,13 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/node': ^17.0.33
+  commander: ^9.2.0
   dotenv: ^16.0.1
   esno: ^0.14.1
   node-fetch: ^3.2.4
 
 dependencies:
+  commander: 9.2.0
   node-fetch: 3.2.4
 
 devDependencies:
@@ -25,6 +27,11 @@ packages:
     dependencies:
       semver: 7.3.7
     dev: true
+
+  /commander/9.2.0:
+    resolution: {integrity: sha512-e2i4wANQiSXgnrBlIatyHtP1odfUp0BbV5Y5nEGbxtIrStkEOAAzCUirvLBNXHLr7kwLvJl6V+4V3XV9x7Wd9w==}
+    engines: {node: ^12.20.0 || >=14}
+    dev: false
 
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
