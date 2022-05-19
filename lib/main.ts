@@ -1,17 +1,21 @@
 import dotenv from 'dotenv';
-import { fetchFeature } from './infra/azureFetch';
+dotenv.config();
+
+import { fetchFeature } from './modules/azure/infra/azureFetch';
 import { program } from 'commander';
 
-dotenv.config();
+interface ProgramOptions {
+  theme: string;
+}
 
 program
   .name('azure to miro cli')
   .description('import work items from Azure to Miro boards')
   .argument('<number>', 'Work item id')
-  .option('-t|--template', 'template of colors to use')
-  .action(async (id: number) => {
+  .option('-t|--theme <string>', 'theme of colors to use')
+  .action(async (id: number, { theme }: ProgramOptions) => {
     const cards = await fetchFeature(`${id}`);
-    console.log(JSON.stringify({ cards }));
+    console.log(JSON.stringify({ cards, theme }));
   });
 
 program.parse();

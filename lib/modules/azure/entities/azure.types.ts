@@ -6,6 +6,7 @@ export interface WorkItem {
   Effort: number | null;
   RemainingWork: number | null;
 }
+
 export interface Feature extends WorkItem {
   Children: WorkItem[];
 }
