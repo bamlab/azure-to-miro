@@ -1,5 +1,5 @@
 import fetch, { Headers } from 'node-fetch';
-import { Feature } from '../entities/azure.types';
+import { Feature, WorkItemType } from '../entities/azure.types';
 
 const MANDATORY_VARIABLES = [
   'ATM_AZURE_ORGANISATION',
@@ -17,7 +17,7 @@ const validateEnvironmentVariables = () => {
   return true;
 };
 
-export const fetchFeature = async (featureId: string): Promise<Feature[]> => {
+export const fetchFeature = async (featureId: number): Promise<Feature[]> => {
   if (!validateEnvironmentVariables()) {
     return [];
   }
@@ -50,4 +50,18 @@ export const fetchFeature = async (featureId: string): Promise<Feature[]> => {
   }
 
   return [];
+};
+
+export const getTitleEmoji = (workItemType: WorkItemType) => {
+  switch (workItemType) {
+    case WorkItemType.Feature:
+      return '📕';
+    case WorkItemType.ProductBacklogItem:
+      return '⭐️';
+    case WorkItemType.Bug:
+      return '🐞';
+    case WorkItemType.Task:
+    default:
+      return '📝';
+  }
 };
