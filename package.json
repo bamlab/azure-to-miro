@@ -1,10 +1,15 @@
 {
   "name": "azure-to-miro",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "Transfer Azure work items to Miro boards",
+  "type": "module",
   "main": "./dist/main.js",
+  "bin": {
+    "azure-to-miro": "./main.sh"
+  },
   "scripts": {
-    "transfer": "esno ./lib/main.ts"
+    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "transfer": "esno ./src/main.ts"
   },
   "repository": {
     "type": "git",
@@ -20,7 +25,9 @@
   "devDependencies": {
     "@types/node": "^17.0.33",
     "dotenv": "^16.0.1",
-    "esno": "^0.14.1"
+    "esno": "^0.14.1",
+    "release-it": "^15.0.0",
+    "typescript": "^4.6.4"
   },
   "dependencies": {
     "cli-spinners": "^2.6.1",
