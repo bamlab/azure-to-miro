@@ -11,6 +11,9 @@
     "prepare": "tsc -p tsconfig.json",
     "transfer": "esno ./src/main.ts"
   },
+  "hooks": {
+    "after:bump": "pnpm run prepare"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bamlab/azure-to-miro.git"
