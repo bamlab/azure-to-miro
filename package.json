@@ -8,7 +8,7 @@
     "azure-to-miro": "./main.sh"
   },
   "scripts": {
-    "prepare": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "prepare": "tsc -p tsconfig.json",
     "transfer": "esno ./src/main.ts"
   },
   "repository": {
