@@ -12,7 +12,7 @@ export const transferAzureToMiro = async (
   theme: string,
   workItemIndex = 0
 ) => {
-  const DEVOPS_EDIT_URL = `${process.env.ATOM_DEVOPS_SERVER_URL}/${process.env.ATOM_DEVOPS_PROJECT}/_workitems/edit`;
+  const DEVOPS_EDIT_URL = `${process.env.ATM_AZURE_PROJET_URL}/${process.env.ATM_AZURE_PROJECT}/_workitems/edit`;
   const MIRO_HEIGHT = 3000;
   const OFFSET = parseInt(process.env.ATM_MIRO_OFFSET ?? '0', 10);
 
