@@ -1,6 +1,6 @@
 {
   "name": "azure-to-miro",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Transfer Azure work items to Miro boards",
   "main": "./dist/main.js",
   "bin": {
