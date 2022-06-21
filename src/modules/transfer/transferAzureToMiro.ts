@@ -62,10 +62,11 @@ export const transferAzureToMiro = async (
       theme
     ),
     ...item.Children.map((card, index) => {
-      const url = `${DEVOPS_EDIT_URL}/${item.WorkItemId}`;
+      const childUrl = `${DEVOPS_EDIT_URL}/${card.WorkItemId}`;
+
       return adaptTicketToMiroTicket(
         card,
-        url,
+        childUrl,
         (index + 1) * OFFSET * MIRO_SCALE,
         MIRO_HEIGHT + workItemIndex * OFFSET,
         theme
