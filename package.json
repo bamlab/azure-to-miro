@@ -8,7 +8,7 @@
   },
   "scripts": {
     "prepare": "tsc -p tsconfig.json",
-    "transfer": "esno ./src/main.ts"
+    "main": "esno ./src/main.ts"
   },
   "hooks": {
     "after:bump": "pnpm run prepare"

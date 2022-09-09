@@ -10,7 +10,7 @@ interface ProgramOptions {
 }
 
 program
-  .name('azure to miro cli')
+  .command('transfer')
   .description('import work items from Azure to Miro boards')
   .argument('<number>', 'Work item id')
   .option('-t|--theme <string>', 'theme of colors to use')
