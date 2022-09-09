@@ -31,9 +31,7 @@ program
   .option('-p|--path <string>', 'iteration path')
   .option('-i|--items <number...>', 'work item ids')
   .action(async (release: string, { path, items }: CreateReleaseOptions) => {
-    console.log({ path, items });
-
-    await createRelease(release);
+    await createRelease(release, { path, workItemIds: items });
   });
 
 program.parse();
