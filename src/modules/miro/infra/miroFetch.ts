@@ -1,4 +1,5 @@
 import fetch, { Headers } from 'node-fetch';
+import { getEnvVariable } from '../../../utils/context';
 import { getThemeColor } from '../../../utils/theme';
 import { WorkItem, WorkItemType } from '../../azure/entities/azure.types';
 import { getTitleEmoji } from '../../azure/infra/azureFetch';
@@ -7,14 +8,16 @@ import { MiroCard } from '../entities/miro.types';
 export const MIRO_SCALE = 3;
 
 export const addCard = async (card: MiroCard) => {
-  process.env.ATM_MIRO_API_URL;
-  process.env.ATM_MIRO_BOARD_ID;
-
-  const url = `${process.env.ATM_MIRO_API_URL}/boards/${process.env.ATM_MIRO_BOARD_ID}/widgets`;
+  const url = `${getEnvVariable('ATM_MIRO_API_URL')}/boards/${getEnvVariable(
+    'ATM_MIRO_BOARD_ID'
+  )}/widgets`;
 
   const headers = new Headers();
 
-  headers.append('Authorization', `Bearer ${process.env.ATM_MIRO_API_KEY}`);
+  headers.append(
+    'Authorization',
+    `Bearer ${getEnvVariable('ATM_MIRO_API_KEY')}`
+  );
   headers.append('Content-Type', 'application/json; charset=utf8');
 
   const result = await fetch(url, {
