@@ -20,6 +20,7 @@ program
   .description('import work items from Azure to Miro boards')
   .argument('<number>', 'Work item id')
   .option('-t|--theme <string>', 'theme of colors to use')
+  .option('-p|--project <string>', 'project')
   .action(async (id: number, { theme }: TransferOptions) => {
     await transferAzureToMiro(id, (theme ?? '').toUpperCase());
   });
