@@ -1,4 +1,5 @@
 import fetch, { Headers } from 'node-fetch';
+import { getEnvVariable } from '../../../utils/context';
 import { Feature, WorkItemType } from '../entities/azure.types';
 
 const MANDATORY_VARIABLES = [
@@ -9,7 +10,7 @@ const MANDATORY_VARIABLES = [
 
 const validateEnvironmentVariables = () => {
   for (const variable of MANDATORY_VARIABLES) {
-    if (!process.env[variable]) {
+    if (!getEnvVariable(variable)) {
       console.error(`${variable} is mandatory but is not set.`);
       return false;
     }
@@ -23,11 +24,15 @@ export const fetchFeature = async (featureId: number): Promise<Feature[]> => {
   }
 
   const apiTokenBase64 = Buffer.from(
-    `:${process.env.ATM_AZURE_API_TOKEN}`
+    `:${getEnvVariable('ATM_AZURE_API_TOKEN')}`
   ).toString('base64');
 
   try {
-    const url = `https://analytics.dev.azure.com/${process.env.ATM_AZURE_ORGANISATION}/${process.env.ATM_AZURE_PROJECT}/_odata/v2.0/WorkItems?$select=WorkItemId,Title,State,WorkItemType&$expand=Children($select=WorkItemId,Title,State,Effort,RemainingWork,WorkItemType)&$filter=WorkItemId eq ${featureId}`;
+    const url = `https://analytics.dev.azure.com/${getEnvVariable(
+      'ATM_AZURE_ORGANISATION'
+    )}/${getEnvVariable(
+      'ATM_AZURE_PROJECT'
+    )}/_odata/v2.0/WorkItems?$select=WorkItemId,Title,State,WorkItemType&$expand=Children($select=WorkItemId,Title,State,Effort,RemainingWork,WorkItemType)&$filter=WorkItemId eq ${featureId}`;
     const headers = new Headers();
 
     headers.append('Authorization', `Basic ${apiTokenBase64}`);

@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import { getEnvVariable } from './context';
 dotenv.config();
 
 type Status = 'TODO' | 'DONE' | 'BUG';
@@ -6,8 +7,8 @@ type Status = 'TODO' | 'DONE' | 'BUG';
 export const getThemeColor = (theme: string, status: Status) => {
   const color =
     (theme
-      ? process.env[`ATM_THEME_${theme}_${status}`]
-      : process.env[`ATM_THEME_${status}`]) || defaultColors(status);
+      ? getEnvVariable(`ATM_THEME_${theme}_${status}`)
+      : getEnvVariable(`ATM_THEME_${status}`)) || defaultColors(status);
 
   return color;
 };

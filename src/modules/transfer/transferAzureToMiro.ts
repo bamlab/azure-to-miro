@@ -1,3 +1,4 @@
+import { getEnvVariable } from '../../utils/context';
 import { spinner } from '../../utils/spinner';
 import { WorkItemType } from '../azure/entities/azure.types';
 import { fetchFeature } from '../azure/infra/azureFetch';
@@ -12,9 +13,11 @@ export const transferAzureToMiro = async (
   theme: string,
   workItemIndex = 0
 ) => {
-  const DEVOPS_EDIT_URL = `${process.env.ATM_AZURE_PROJET_URL}/${process.env.ATM_AZURE_PROJECT}/_workitems/edit`;
+  const DEVOPS_EDIT_URL = `${getEnvVariable(
+    'ATM_AZURE_PROJET_URL'
+  )}/${getEnvVariable('ATM_AZURE_PROJECT')}/_workitems/edit`;
   const MIRO_HEIGHT = 3000;
-  const OFFSET = parseInt(process.env.ATM_MIRO_OFFSET ?? '0', 10);
+  const OFFSET = parseInt(getEnvVariable('ATM_MIRO_OFFSET') ?? '0', 10);
 
   const spinnerFetch = spinner(`Fetching item #${workItemId}`);
 
@@ -32,7 +35,7 @@ export const transferAzureToMiro = async (
     const featureCard = adaptTicketToMiroTicket(
       item,
       url,
-      -3 * parseInt(process.env.ATM_MIRO_OFFSET ?? '1', 10),
+      -3 * parseInt(getEnvVariable('ATM_MIRO_OFFSET') ?? '1', 10),
       MIRO_HEIGHT,
       theme
     );
