@@ -44,6 +44,14 @@ For example:
 
 Note that the `export` bit is pretty key, to make sure that they are globally available. To check that the variables have been set correctly, you can print them in the terminal -- for example, echo `$ATM_MIRO_BOARD_ID`.
 
+## Specific project
+
+You can add multiple project by prefixing with your custom project ID.
+
+example: `ATM_MIRO_BOARD_ID` can become `SPECIFIC_PROJECT_ATM_MIRO_BOARD_ID` and `SECOND_SPECIFIC_PROJECT_ATM_MIRO_BOARD_ID`.
+
+And you can use it this way: `npx transfer 123 -p=SPECIFIC_PROJECT`
+
 ## Custom theme
 
 You can add multiple color theme if you want to customize.
