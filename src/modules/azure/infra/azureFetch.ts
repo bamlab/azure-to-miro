@@ -32,7 +32,7 @@ export const fetchFeature = async (featureId: number): Promise<Feature[]> => {
       'ATM_AZURE_ORGANISATION'
     )}/${getEnvVariable(
       'ATM_AZURE_PROJECT'
-    )}/_odata/v2.0/WorkItems?$select=WorkItemId,Title,State,WorkItemType&$expand=Children($select=WorkItemId,Title,State,Effort,RemainingWork,WorkItemType)&$filter=WorkItemId eq ${featureId}`;
+    )}/_odata/v2.0/WorkItems?$select=WorkItemId,Title,State,WorkItemType,Effort,RemainingWork&$expand=Children($select=WorkItemId,Title,State,Effort,RemainingWork,WorkItemType)&$filter=WorkItemId eq ${featureId}`;
     const headers = new Headers();
 
     headers.append('Authorization', `Basic ${apiTokenBase64}`);
